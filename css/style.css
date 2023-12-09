@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 body {
     background-color: #eaeaea;
     overflow: hidden;
@@ -47,34 +48,35 @@ body {
 }
 
 .slide1 .item:nth-child(3) {
-    left: 60%;
+    left: 95%;
 }
 
 .slide1 .item:nth-child(4) {
-    left: calc(60% + 220px);
+    left: calc(80% + 220px);
 }
 
 .slide1 .item:nth-child(5) {
-    left: calc(60% + 440px);
+    left: calc(80% + 440px);
     opacity: 0;
 }
 
 .slide1 .item:nth-child(n+6) {
-    left: calc(60% + 660px);
+    left: calc(80% + 660px);
     opacity: 0;
 }
 
 .slide1 .item .content {
     position: absolute;
-    top: 60%;
-    left: 100px;
+    top: 50%;
+    left: -300px;
     width: 300px;
     text-align: left;
     padding: 0;
-    color: #eee;
+    color: #f00;
     transform: translate(0, -50%);
     display: none;
-    font-family: system-ui;
+    font-family: 'Great Vibes', cursive;
+    font-size: 40px;
 }
 
 .slide1 .item:nth-child(2) .content {
@@ -118,7 +120,7 @@ body {
 
 .slide1 .buttons {
     position: absolute;
-    bottom: 30px;
+    bottom: 130px;
     z-index: 222222;
     text-align: center;
     width: 100%;

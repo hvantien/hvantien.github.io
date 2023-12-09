@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Phát Video Full Màn Hình</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    video {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+  </style>
+</head>
+<body>
+  <video id="myVideo" controls autoplay loop>
+    <source src="copy_9CD09FF7-3AF7-4D02-B11D-748B97398EA7 2.mov" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <script>
+    const video = document.getElementById('myVideo');
+
+    function centerVideo() {
+      const videoWidth = video.videoWidth;
+      const videoHeight = video.videoHeight;
+      
+      const windowWidth = window.innerWidth;
+      const windowHeight = window.innerHeight;
+      
+      const widthRatio = windowWidth / videoWidth;
+      const heightRatio = windowHeight / videoHeight;
+      
+      const scale = Math.min(widthRatio, heightRatio);
+      
+      video.style.width = `${videoWidth * scale}px`;
+      video.style.height = `${videoHeight * scale}px`;
+    }
+
+    window.onload = centerVideo;
+    window.onresize = centerVideo;
+  </script>
+</body>
+</html>
