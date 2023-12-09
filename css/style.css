@@ -117,6 +117,11 @@ body {
         filter: blur(0);
     }
 }
+audio {
+    position: absolute;
+    left: -350px;
+    bottom: 50px;
+}
 
 .slide1 .buttons {
     position: absolute;
