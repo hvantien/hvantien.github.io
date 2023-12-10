@@ -119,8 +119,8 @@ body {
 }
 audio {
     position: absolute;
-    left: -350px;
-    bottom: 50px;
+    right: -450px;
+    bottom: 150px;
 }
 
 .slide1 .buttons {
