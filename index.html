@@ -2,37 +2,42 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/>
-    <title>Happy bithday</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Full Page Scroll</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <div class="nav" id="nav">
-            
-            
-        </div>
-        <div class="banner">
-            <h1 class="title">Hello, Lê Hoài Nhi </h1>
-        </div>
-    </header>
-    <div class="container">
-        <div class="item intro">
-            <div class="content">
-                <div class="showtotop">Chúc mừng sinh nhật <i class="fa-solid fa-cake-candles"> </i> <i class="fa-solid fa-cake-candles"></i> <i class="fa-solid fa-cake-candles"></i></div>
-                <h2 class="showtotop delay-02">Lê Hoài Nhi</h2>
-                <div class="text">
-                    <p class="showtotop delay-03">11-12-2023</p>
-                    <p class="showtotop delay-04">Chúc em có một sinh nhật thật ý nghĩa</p>
-                    <p class="showtotop delay-06">Và trọn vẹn niềm vui</p>
-                    <p class="showtotop delay-08">Chào mừng em đến với thế giới này</p>
-                    <p class="showtotop delay-08"><a target="_blank" href="album.html">Click</a></p>
-                </div>
-            </div>
-        </div>
+    <div class="section" id="section1">
+        <video id="video1" class="full-screen-video" muted autoplay>
+            <source id="video-source" src="session1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
     </div>
+    <div class="section" id="section2">
+        <video id="video2" class="full-screen-video" muted autoplay loop>
+            <source id="video-source" src="session2.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <a id="open-popup-btn" class="apple-button">Open Popup</a>
+    </div>
+    <div class="section" id="section3">
+        <!-- Content for section 3 -->
+    </div>
+
+    <div class="pagination">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+    </div>
+
+    <div id="popup" class="popup">
+        <img class="img-popup" src="1.png" alt="">
+        <img class="img-popup" src="2.png" alt="">
+        <img class="img-popup" src="3.png" alt="">
+        <button id="close-popup-btn">Close Popup</button>
+    </div>
+    <div id="popup-overlay" class="popup-overlay"></div>
+
     <script src="script.js"></script>
 </body>
 </html>

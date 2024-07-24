@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expand Button Example</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .expand-button {
+            width: 50px;
+            height: 50px;
+            font-size: 24px;
+            border: none;
+            border-radius: 50%;
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+            transition: opacity 0.6s ease, width 0.6s ease, height 0.6s ease, font-size 0.6s ease, background-color 0.6s ease;
+            outline: none;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+        }
+
+        .expand-button.visible {
+            opacity: 1;
+        }
+
+        .expand-button.expanded {
+            width: 150px;
+            height: 50px;
+            font-size: 16px;
+            border-radius: 25px;
+            background-color: #0056b3;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+
+        .expand-button::after {
+            content: "See More";
+            opacity: 0;
+            transition: opacity 0.6s ease;
+            white-space: nowrap;
+        }
+
+        .expand-button.expanded::after {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <button class="expand-button">
+        <span class="icon">+</span>
+    </button>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const button = document.querySelector('.expand-button');
+            
+            // Hiển thị nút ban đầu với dấu +
+            setTimeout(() => {
+                button.classList.add('visible');
+            }, 500);
+
+            // Mở rộng nút sau khi đã hiển thị dấu +
+            setTimeout(() => {
+                button.classList.add('expanded');
+            }, 1500); // Thời gian chờ trước khi thực hiện mở rộng (1000ms sau khi hiển thị dấu +)
+        });
+    </script>
+</body>
+</html>
