@@ -75,12 +75,48 @@ body, html {
 
 .container-fluid {
     overflow: auto;
+    padding: 0px !important;
 }
 
 .session1 {
     position: relative;
     min-height: 100vh;
     overflow: hidden;
+}
+
+.session-page {
+    display: none;
+    height: 100vh;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+}
+
+.session-page.active {
+    display: block;
+    opacity: 1;
+}
+
+.dots {
+    text-align: center;
+    margin-top: 20px;
+    position: fixed;
+    bottom: 10px;
+    left: 30px;
+}
+
+.dot {
+    height: 15px;
+    width: 15px;
+    margin: 0 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    
+}
+
+.dot.active {
+    background-color: #717171;
 }
 
 .pngtree-img {
