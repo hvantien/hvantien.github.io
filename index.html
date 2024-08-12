@@ -129,11 +129,11 @@
         window.addEventListener('touchend', function (e) {
             endY = e.changedTouches[0].clientY;
             if (!scrolling) {
-                if (startY > endY + 50) { // Cuộn xuống
+                if (startY > endY + 20) { // Cuộn xuống
                     if (currentSession < document.querySelectorAll('.session-page').length) {
                         showSession(currentSession + 1);
                     }
-                } else if (startY < endY - 50) { // Cuộn lên
+                } else if (startY < endY - 20) { // Cuộn lên
                     if (currentSession > 1) {
                         showSession(currentSession - 1);
                     }
