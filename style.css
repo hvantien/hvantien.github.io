@@ -70,50 +70,44 @@
 body, html {
     margin: 0;
     padding: 0;
-    overflow: auto;
-}
-
-.container-fluid {
-    scroll-snap-type: y mandatory;
-    height: 100vh;
-    overflow-y: scroll;
-    padding: 0px !important;
-}
-
-.session-page {
-    scroll-snap-align: start;
-    height: 100vh;
-}
-
-.session1 {
-    position: relative;
-    min-height: 100vh;
     overflow: hidden;
 }
 
-.dots {
-    text-align: center;
-    margin-top: 20px;
-    position: fixed;
-    bottom: 10px;
-    left: 30px;
-}
-
-.dot {
-    height: 15px;
-    width: 15px;
-    margin: 0 5px;
-    background-color: #bbb;
-    border-radius: 50%;
-    display: inline-block;
-    cursor: pointer;
+.section {
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    position: relative;
     
 }
 
-.dot.active {
-    background-color: #717171;
+.container-fluid{
+    padding: 0px !important;
 }
 
+.dots {
+    position: fixed;
+    bottom: 10px;
+    left: 30px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: gray;
+    cursor: pointer;
+}
+
+.dot.active {
+    background-color: black;
+    width: 20px;
+    border-radius: 10px;
+}
 .pngtree-img {
     position: absolute;
     top: 0;
