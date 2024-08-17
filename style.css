@@ -74,8 +74,15 @@ body, html {
 }
 
 .container-fluid {
-    overflow: auto;
+    scroll-snap-type: y mandatory;
+    height: 100vh;
+    overflow-y: scroll;
     padding: 0px !important;
+}
+
+.session-page {
+    scroll-snap-align: start;
+    height: 100vh;
 }
 
 .session1 {
@@ -299,14 +306,38 @@ body, html {
     overflow: auto !important;
 }
 
-/* Ẩn thanh cuộn trên các trình duyệt Webkit (Chrome, Safari) */
-.modal-body::-webkit-scrollbar {
-    display: none; /* Ẩn thanh cuộn */
+.session3 {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    min-height: 100vh;
 }
 
-/* Ẩn thanh cuộn trên Firefox */
+.session3::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.session3 > * {
+    position: relative;
+    z-index: 2;
+}
+
+
+.modal-body::-webkit-scrollbar {
+    display: none;
+}
+
 .modal-body {
-    scrollbar-width: none; /* Ẩn thanh cuộn trên Firefox */
+    scrollbar-width: none;
 }
 
 /* Media Query cho màn hình nhỏ hơn 768px (điện thoại di động) */
@@ -398,3 +429,16 @@ body, html {
         font-size: 1vw;
     }
 }
+
+@media (min-width: 768px) {
+    .session3 {
+        background-image: url('session3-img.jpeg');
+    }
+}
+
+@media (max-width: 767px) {
+    .session3 {
+        background-image: url('session3-img-phone.jpeg');
+    }
+}
+

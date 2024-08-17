@@ -53,9 +53,14 @@
             </div>
         </div>
 
+        <div class="session-page session3">
+
+        </div>
+
         <div class="dots">
             <span class="dot active" onclick="showSession(1)"></span>
             <span class="dot" onclick="showSession(2)"></span>
+            <span class="dot" onclick="showSession(3)"></span>
         </div>
 
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -85,61 +90,66 @@
         let endY = 0;
 
         function showSession(sessionNumber) {
-            scrolling = true;
-            document.querySelectorAll('.session-page').forEach(function (session) {
-                session.classList.remove('active');
-            });
-            document.querySelectorAll('.dot').forEach(function (dot) {
-                dot.classList.remove('active');
-            });
-            document.querySelector('.session' + sessionNumber).classList.add('active');
-            document.querySelector('.dot:nth-child(' + sessionNumber + ')').classList.add('active');
+        scrolling = true;
+        document.querySelectorAll('.session-page').forEach(function (session) {
+            session.classList.remove('active');
+        });
+        document.querySelectorAll('.dot').forEach(function (dot) {
+            dot.classList.remove('active');
+        });
+        document.querySelector('.session' + sessionNumber).classList.add('active');
+        document.querySelector('.dot:nth-child(' + sessionNumber + ')').classList.add('active');
 
-            const nextSession = document.querySelector('.session' + sessionNumber);
-            window.scrollTo({
-                top: nextSession.offsetTop,
-                behavior: 'smooth'
-            });
+        const nextSession = document.querySelector('.session' + sessionNumber);
+    nextSession.scrollIntoView({
+        behavior: 'smooth'
+    });
 
-            currentSession = sessionNumber;
+        currentSession = sessionNumber;
 
-            setTimeout(function () {
-                scrolling = false;
-            }, 1000);
+        setTimeout(function () {
+            scrolling = false;
+        }, 1000);
+        }
+
+        // Kiểm tra nếu modal đang hiển thị
+        function isModalOpen() {
+        return document.querySelector('.modal.show') !== null;
         }
 
         window.addEventListener('wheel', function (e) {
-            if (!scrolling) {
-                if (e.deltaY > 0) {
-                    if (currentSession < document.querySelectorAll('.session-page').length) {
-                        showSession(currentSession + 1);
-                    }
-                } else {
-                    if (currentSession > 1) {
-                        showSession(currentSession - 1);
-                    }
+        if (!scrolling && !isModalOpen()) {
+            if (e.deltaY > 0) {
+                if (currentSession < document.querySelectorAll('.session-page').length) {
+                    showSession(currentSession + 1);
+                }
+            } else {
+                if (currentSession > 1) {
+                    showSession(currentSession - 1);
                 }
             }
+        }
         });
 
         window.addEventListener('touchstart', function (e) {
-            startY = e.touches[0].clientY;
+        startY = e.touches[0].clientY;
         });
 
         window.addEventListener('touchend', function (e) {
-            endY = e.changedTouches[0].clientY;
-            if (!scrolling) {
-                if (startY > endY + 10) {
-                    if (currentSession < document.querySelectorAll('.session-page').length) {
-                        showSession(currentSession + 1);
-                    }
-                } else if (startY < endY - 10) {
-                    if (currentSession > 1) {
-                        showSession(currentSession - 1);
-                    }
+        endY = e.changedTouches[0].clientY;
+        if (!scrolling && !isModalOpen()) {
+            if (startY > endY + 20) {
+                if (currentSession < document.querySelectorAll('.session-page').length) {
+                    showSession(currentSession + 1);
+                }
+            } else if (startY < endY - 20) {
+                if (currentSession > 1) {
+                    showSession(currentSession - 1);
                 }
             }
+        }
         });
+
     </script>
 </body>
 
