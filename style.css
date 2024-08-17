@@ -10,6 +10,16 @@
     src: url('/fonts/OoohBaby-Regular.ttf') format('opentype');
 }
 
+@font-face {
+    font-family: 'title-font-s3';
+    src: url('/fonts/Caveat-VariableFont_wght.ttf') format('opentype');
+}
+
+@font-face {
+    font-family: 'text-font-s3';
+    src: url('/fonts/Kalam-Regular.ttf') format('opentype');
+}
+
 @keyframes slideInFromRight {
     0% {
         transform: translate(-30%, -50%);
@@ -40,30 +50,29 @@
 @keyframes showText {
     0% {
         opacity: 0;
-        transform: scale(0.8); /* Start with smaller size */
+        transform: scale(0.8);
     }
     100% {
         opacity: 1;
-        transform: scale(1); /* End at full size */
+        transform: scale(1);
     }
 }
 
-/* Optional keyframes for icon-button */
 @keyframes showIcon {
     0% {
-        transform: translateX(-60px); /* Start position off-screen */
+        transform: translateX(-60px);
     }
     100% {
-        transform: translateX(0); /* Final position */
+        transform: translateX(0);
     }
 }
 
 @keyframes expandButton {
     0% {
-        width: 50px; /* Width to fit only the icon */
+        width: 50px;
     }
     100% {
-        width: 200px; /* Width to fit both the icon and the text */
+        width: 200px;
     }
 }
 
@@ -79,11 +88,10 @@ body, html {
     align-items: center;
     font-size: 2em;
     position: relative;
-    
 }
 
-.container-fluid{
-    padding: 0px !important;
+.container-fluid {
+    padding: 0 !important;
 }
 
 .dots {
@@ -108,6 +116,7 @@ body, html {
     width: 20px;
     border-radius: 10px;
 }
+
 .pngtree-img {
     position: absolute;
     top: 0;
@@ -140,11 +149,6 @@ body, html {
 
 .row > * {
     padding: 0 !important;
-}
-
-body, html {
-    margin: 0;
-    padding: 0;
 }
 
 .fullscreen {
@@ -233,20 +237,20 @@ body, html {
     background-color: #e9ecef;
 }
 
-.modal-body img{
+.modal-body img {
     width: 100%;
     object-fit: cover;
 }
 
-.more-button{
+.more-button {
     position: absolute;
     bottom: 8vh;
     left: 40%;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgb(66 66 69/70%);
-    color: rgb(245,245,247);
+    background-color: rgb(66 66 69 / 70%);
+    color: rgb(245, 245, 247);
     border: none;
     padding: 10px 5px;
     border-radius: 5px;
@@ -256,7 +260,7 @@ body, html {
     animation: expandButton 3s ease forwards;
 }
 
-.text-button{
+.text-button {
     margin-right: 20px;
     font-size: 20px;
     font-weight: 500;
@@ -266,7 +270,7 @@ body, html {
     animation-delay: 1s;
 }
 
-.icon-button{
+.icon-button {
     font-size: 1.2em;
     background-color: #0071e3;
     padding: 10px;
@@ -274,7 +278,7 @@ body, html {
     animation: showIcon 4s ease forwards;
 }
 
-.modal-content{
+.modal-content {
     position: relative;
 }
 
@@ -285,15 +289,15 @@ body, html {
     z-index: 10;
     border: none;
     background-color: rgba(80, 73, 73, 0.34);
-    width: 40px; /* Set width */
-    height: 40px; /* Set height to match width */
-    border-radius: 50%; /* Make it round */
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
     font-size: 20px;
     color: rgb(255, 255, 255);
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0; /* Remove extra padding */
+    padding: 0;
 }
 
 .modal-body {
@@ -307,6 +311,8 @@ body, html {
     background-repeat: no-repeat;
     height: 100vh;
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .session3::before {
@@ -325,6 +331,93 @@ body, html {
     z-index: 2;
 }
 
+.color-s3{
+    color: #fff;
+}
+
+.countdown-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+}
+
+.countdown-item {
+    text-align: center;
+    margin: 0 5px; /* Reduced margin to bring items closer */
+    background: rgba(255, 255, 255, 0.1); /* Background color */
+    padding: 8px 12px; /* Adjusted padding */
+    border-radius: 8px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3); /* Shadow */
+    transition: transform 0.3s ease, background 0.3s ease; /* Transition effects */
+    width: 20vh;
+}
+
+.countdown-item:hover {
+    transform: scale(1.05);
+}
+
+.countdown-item span {
+    display: block;
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #fff;
+}
+
+.countdown-item p {
+    margin: 0;
+    font-size: 1rem;
+    color: #ccc;
+    font-weight: 300;
+}
+
+.title-s3{
+    font-family: 'title-font-s3';
+    font-size: 7vw;
+}
+
+.date-s3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    margin: 0px 0px 30px 0px;
+    font-family: 'title-font-s3';
+    letter-spacing: 1vh;
+    max-height: 50px;
+}
+
+.date-of-week-s3{
+    font-family: 'Times New Roman', Times, serif;
+    letter-spacing: 1vh;
+    margin-top: 10vh;
+}
+
+.month-s3{
+    width: 100px;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    text-align: center;
+}
+
+.day-s3{
+    width: 100px;
+    text-align: center;
+    font-size: 80px;
+}
+
+.year-s3{
+    width: 100px;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    text-align: center;
+}
 
 .modal-body::-webkit-scrollbar {
     display: none;
@@ -334,7 +427,6 @@ body, html {
     scrollbar-width: none;
 }
 
-/* Media Query cho màn hình nhỏ hơn 768px (điện thoại di động) */
 @media only screen and (max-width: 768px) {
     .pngtree-img {
         width: 20vh;
@@ -345,7 +437,7 @@ body, html {
         width: 30vh;
         height: 30vh;
     }
-    
+
     .s1-title {
         font-size: 10vw;
         letter-spacing: 2vw;
@@ -369,7 +461,6 @@ body, html {
     }
 }
 
-/* Media Query cho màn hình từ 768px đến 1200px (máy tính bảng và laptop nhỏ) */
 @media only screen and (min-width: 768px) and (max-width: 1200px) {
     .pngtree-img {
         width: 20vh;
@@ -399,7 +490,6 @@ body, html {
     }
 }
 
-/* Media Query cho màn hình lớn hơn 1200px (máy tính để bàn) */
 @media only screen and (min-width: 1200px) {
     .s1-title {
         font-size: 5vw;
@@ -436,3 +526,19 @@ body, html {
     }
 }
 
+@media only screen and (max-width: 768px) {
+    .countdown-container {
+        width: 100%;
+        padding: 10px 5px; /* Adjusted padding for smaller screens */
+    }
+
+    .countdown-item {
+        width: 80px; /* Smaller width on mobile */
+        margin: 0 3px; /* Reduced margin for mobile */
+        font-size: 20px;
+    }
+
+    .countdown-item span {
+        font-size: 2em;
+    }
+}
