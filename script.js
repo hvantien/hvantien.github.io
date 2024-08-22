@@ -8,11 +8,16 @@ let touchStartY = 0;
 let touchEndY = 0;
 
 document.addEventListener('wheel', (event) => {
-    if (!isScrolling && !isPopupOpen) {
-        if (event.deltaY > 0) {
-            nextSection();
+    if (!isScrolling) {
+        if (!isPopupOpen) {
+            if (event.deltaY > 0) {
+                nextSection();
+            } else {
+                prevSection();
+            }
         } else {
-            prevSection();
+            // Optional: You can handle specific scroll behavior when the modal is open
+            console.log("Modal is open, scrolling disabled.");
         }
     }
 });
@@ -26,8 +31,13 @@ document.addEventListener('touchmove', (event) => {
 }, false);
 
 document.addEventListener('touchend', () => {
-    if (!isScrolling && !isPopupOpen) {
-        handleTouchScroll();
+    if (!isScrolling) {
+        if (!isPopupOpen) {
+            handleTouchScroll();
+        } else {
+            // Optional: Handle behavior when touch events occur during modal open
+            console.log("Modal is open, touch scrolling disabled.");
+        }
     }
 }, false);
 
@@ -96,6 +106,21 @@ function checkCurrentSection() {
 window.addEventListener('load', checkCurrentSection);
 window.addEventListener('scroll', checkCurrentSection);
 
+function openModal() {
+    isPopupOpen = true;
+    document.body.classList.add('no-scroll');
+}
+
+function closeModal() {
+    isPopupOpen = false;
+    document.body.classList.remove('no-scroll');
+}
+
+const modalElement = document.getElementById('exampleModal');
+modalElement.addEventListener('shown.bs.modal', openModal);
+
+modalElement.addEventListener('hidden.bs.modal', closeModal);  
+
 const countdownDate = new Date("September 22, 2024 00:00:00").getTime();
 
 const updateCountdown = () => {
@@ -103,14 +128,12 @@ const updateCountdown = () => {
     const distance = countdownDate - now;
 
     if (distance < 0) {
-        // Khi hết thời gian
         document.getElementById('days').textContent = "00";
         document.getElementById('hours').textContent = "00";
         document.getElementById('minutes').textContent = "00";
         document.getElementById('seconds').textContent = "00";
         clearInterval(interval);
     } else {
-        // Tính toán thời gian còn lại
         const days = Math.floor(distance / (1000 * 60 * 60 * 24));
         const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
@@ -124,6 +147,4 @@ const updateCountdown = () => {
 };
 
 const interval = setInterval(updateCountdown, 1000);
-updateCountdown(); // initial call
-
-
+updateCountdown();
