@@ -93,6 +93,10 @@ html {
     position: relative;
 }
 
+.no-scroll {
+    overflow: hidden;
+}
+
 .container-fluid {
     padding: 0 !important;
 }

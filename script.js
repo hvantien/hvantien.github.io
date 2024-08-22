@@ -7,37 +7,45 @@ let isPopupOpen = false;
 let touchStartY = 0;
 let touchEndY = 0;
 
+const moreButton = document.querySelector('.more-button');
+
+// Prevent touch events on the more-button
+moreButton.addEventListener('touchstart', (event) => {
+    event.stopImmediatePropagation(); // Stops other touchstart listeners from being triggered
+}, { passive: false });
+
+moreButton.addEventListener('touchend', (event) => {
+    event.stopImmediatePropagation(); // Stops other touchend listeners from being triggered
+}, { passive: false });
+
 document.addEventListener('wheel', (event) => {
-    if (!isScrolling) {
-        if (!isPopupOpen) {
-            if (event.deltaY > 0) {
-                nextSection();
-            } else {
-                prevSection();
-            }
+    if (!isScrolling && !isPopupOpen) {
+        if (event.deltaY > 0) {
+            nextSection();
         } else {
-            // Optional: You can handle specific scroll behavior when the modal is open
-            console.log("Modal is open, scrolling disabled.");
+            prevSection();
         }
+    } else if (isPopupOpen) {
+        // Optional: You can handle specific scroll behavior when the modal is open
+        console.log("Modal is open, scrolling disabled.");
     }
 });
 
 document.addEventListener('touchstart', (event) => {
-    touchStartY = event.touches[0].clientY;
+    if (!isPopupOpen) {
+        touchStartY = event.touches[0].clientY;
+    }
 }, false);
 
 document.addEventListener('touchmove', (event) => {
-    touchEndY = event.touches[0].clientY;
+    if (!isPopupOpen) {
+        touchEndY = event.touches[0].clientY;
+    }
 }, false);
 
 document.addEventListener('touchend', () => {
-    if (!isScrolling) {
-        if (!isPopupOpen) {
-            handleTouchScroll();
-        } else {
-            // Optional: Handle behavior when touch events occur during modal open
-            console.log("Modal is open, touch scrolling disabled.");
-        }
+    if (!isScrolling && !isPopupOpen) {
+        handleTouchScroll();
     }
 }, false);
 
@@ -109,17 +117,18 @@ window.addEventListener('scroll', checkCurrentSection);
 function openModal() {
     isPopupOpen = true;
     document.body.classList.add('no-scroll');
+    window.removeEventListener('scroll', checkCurrentSection);
 }
 
 function closeModal() {
     isPopupOpen = false;
     document.body.classList.remove('no-scroll');
+    window.addEventListener('scroll', checkCurrentSection);
 }
 
 const modalElement = document.getElementById('exampleModal');
 modalElement.addEventListener('shown.bs.modal', openModal);
-
-modalElement.addEventListener('hidden.bs.modal', closeModal);  
+modalElement.addEventListener('hidden.bs.modal', closeModal);
 
 const countdownDate = new Date("September 22, 2024 00:00:00").getTime();
 
