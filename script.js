@@ -9,14 +9,14 @@ let touchEndY = 0;
 
 const moreButton = document.querySelector('.more-button');
 
-// Prevent touch events on the more-button
-moreButton.addEventListener('touchstart', (event) => {
-    event.stopImmediatePropagation(); // Stops other touchstart listeners from being triggered
-}, { passive: false });
+// // Prevent touch events on the more-button
+// moreButton.addEventListener('touchstart', (event) => {
+//     event.stopImmediatePropagation(); // Stops other touchstart listeners from being triggered
+// }, { passive: false });
 
-moreButton.addEventListener('touchend', (event) => {
-    event.stopImmediatePropagation(); // Stops other touchend listeners from being triggered
-}, { passive: false });
+// moreButton.addEventListener('touchend', (event) => {
+//     event.stopImmediatePropagation(); // Stops other touchend listeners from being triggered
+// }, { passive: false });
 
 document.addEventListener('wheel', (event) => {
     if (!isScrolling && !isPopupOpen) {
@@ -31,11 +31,11 @@ document.addEventListener('wheel', (event) => {
     }
 });
 
-document.addEventListener('touchstart', (event) => {
-    if (!isPopupOpen) {
-        touchStartY = event.touches[0].clientY;
-    }
-}, false);
+// document.addEventListener('touchstart', (event) => {
+//     if (!isPopupOpen) {
+//         touchStartY = event.touches[0].clientY;
+//     }
+// }, false);
 
 document.addEventListener('touchmove', (event) => {
     if (!isPopupOpen) {
@@ -43,11 +43,11 @@ document.addEventListener('touchmove', (event) => {
     }
 }, false);
 
-document.addEventListener('touchend', () => {
-    if (!isScrolling && !isPopupOpen) {
-        handleTouchScroll();
-    }
-}, false);
+// document.addEventListener('touchend', () => {
+//     if (!isScrolling && !isPopupOpen) {
+//         handleTouchScroll();
+//     }
+// }, false);
 
 dots.forEach((dot, index) => {
     dot.addEventListener('click', () => {
@@ -154,3 +154,6 @@ const updateCountdown = () => {
         document.getElementById('seconds').textContent = seconds < 10 ? `0${seconds}` : seconds;
     }
 };
+
+const interval = setInterval(updateCountdown, 1000);
+updateCountdown();
