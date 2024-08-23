@@ -350,7 +350,7 @@ html {
 /* Styles for desktop screens (min-width: 768px) */
 @media (min-width: 768px) {
     .session1 {
-        background-image: url('https://share.icloud.com/photos/041AuZ0mS4j3wAsFkucz-5BBw');
+        background-image: url('img/session1-img.jpeg');
     }
 
     .session2 {
