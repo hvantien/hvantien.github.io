@@ -154,6 +154,3 @@ const updateCountdown = () => {
         document.getElementById('seconds').textContent = seconds < 10 ? `0${seconds}` : seconds;
     }
 };
-
-const interval = setInterval(updateCountdown, 1000);
-updateCountdown();
