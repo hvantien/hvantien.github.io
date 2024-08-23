@@ -6,6 +6,10 @@ let isPopupOpen = false;
 
 let touchStartY = 0;
 let touchEndY = 0;
+let touchStartTime = 0;
+let touchEndTime = 0;
+const SCROLL_THRESHOLD = 50; // Khoảng cách tối thiểu để coi là cuộn
+const TIME_THRESHOLD = 150; // Thời gian tối đa để coi là nhấn (ms)
 
 const moreButton = document.querySelector('.more-button');
 
@@ -29,15 +33,14 @@ document.addEventListener('wheel', (event) => {
             prevSection();
         }
     } else if (isPopupOpen) {
-        // Optional: You can handle specific scroll behavior when the modal is open
         console.log("Modal is open, scrolling disabled.");
     }
 });
 
 document.addEventListener('touchstart', (event) => {
-    console.log(4);
     if (!isPopupOpen) {
         touchStartY = event.touches[0].clientY;
+        touchStartTime = new Date().getTime(); // Ghi lại thời gian bắt đầu
     }
 }, false);
 
@@ -49,9 +52,16 @@ document.addEventListener('touchmove', (event) => {
 }, false);
 
 document.addEventListener('touchend', () => {
-    console.log(6);
     if (!isScrolling && !isPopupOpen) {
-        handleTouchScroll();
+        touchEndTime = new Date().getTime(); // Ghi lại thời gian kết thúc
+        const timeDiff = touchEndTime - touchStartTime;
+
+        // Chỉ coi là cuộn nếu chuyển động lớn hơn ngưỡng và thời gian đủ dài
+        if (Math.abs(touchStartY - touchEndY) > SCROLL_THRESHOLD && timeDiff > TIME_THRESHOLD) {
+            handleTouchScroll();
+        } else {
+            console.log("Phát hiện chạm"); // Đây là hành động nhấn
+        }
     }
 }, false);
 
@@ -64,9 +74,9 @@ dots.forEach((dot, index) => {
 });
 
 function handleTouchScroll() {
-    if (touchStartY - touchEndY > 50) {
+    if (touchStartY - touchEndY > SCROLL_THRESHOLD) {
         nextSection();
-    } else if (touchEndY - touchStartY > 50) {
+    } else if (touchEndY - touchStartY > SCROLL_THRESHOLD) {
         prevSection();
     }
 }

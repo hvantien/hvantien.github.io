@@ -395,12 +395,12 @@ html {
 }
 .card--1 .card__img,
 .card--1 .card__img--hover {
-  background-image: url("https://images.pexels.com/photos/45202/brownie-dessert-cake-sweet-45202.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260");
+  background-image: url("img/goldenphonix.jpg");
 }
 
 .card--2 .card__img,
 .card--2 .card__img--hover {
-  background-image: url("https://images.pexels.com/photos/307008/pexels-photo-307008.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260");
+  background-image: url("img/mekong.jpg");
 }
 
 .card__like {
@@ -509,7 +509,7 @@ html {
   background-color: #fff;
   border-bottom-left-radius: 12px;
   border-bottom-right-radius: 12px;
-  padding: 16px 24px 24px 24px;
+  padding: 5px 10px 10px 10px;
 }
 
 .card__category {
@@ -522,8 +522,6 @@ html {
 }
 
 .card__title {
-  margin-top: 5px;
-  margin-bottom: 10px;
   font-family: "Roboto Slab", serif;
 }
 
