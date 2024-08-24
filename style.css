@@ -20,8 +20,8 @@
   src: url("/fonts/Kalam-Regular.ttf") format("opentype");
 }
 
-@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700');
-@import url('https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i');
+@import url("https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700");
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i");
 
 @keyframes slideInFromRight {
   0% {
@@ -387,26 +387,69 @@ html {
   }
 }
 
-@import url('https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600,700,800');
+@import url("https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600,700,800");
 
-.session3{
+.session3 {
   overflow: hidden;
   max-height: 100vh;
 }
 
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  align-items: center;
+  height: 100vh;
+  column-gap: 10px;
+}
+
+@media (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    height: auto;
+  }
+
+  .blog-slider__title {
+    font-size: 5vw !important;
+    margin: 10px auto;
+  }
+}
+
 .blog-slider {
-  width: 95%;
+  width: 80%;
   position: relative;
-  /* max-width: 800px; */
   margin: 50px auto;
   background: #fff;
-  padding: 25px;
+  padding-top: 25px;
+  padding-bottom: 25px;
   border-radius: 25px;
   height: auto;
-  box-shadow: 0px 20px 50px #7c7e85;
-  -webkit-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
-  transition: all 0.3s ease; 
+  box-shadow: 0px 20px 50px rgba(124, 126, 133, 0.5);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+@media screen and (max-width: 992px) {
+  .blog-slider {
+    margin: 0 auto !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .blog-slider {
+    width: 90% !important;
+    height: 60% !important;
+    padding: 0px auto !important;
+    padding-left: auto !important;
+    padding-right: auto !important;
+    padding-top: 0px !important;
+  }
+}
+
+@media screen and (max-height: 500px) and (min-width: 992px) {
+  .blog-slider {
+    height: 350px;
+  }
 }
 
 .blog-slider:hover {
@@ -417,25 +460,58 @@ html {
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
 }
 
-@media screen and (max-width: 992px) {
-  .blog-slider {
-    max-width: 680px;
-    height: auto;
-  }
+.grid-item {
+  display: flex;
+  flex-direction: column;
 }
 
-@media screen and (max-width: 768px) {
-  .blog-slider {
-    min-height: 500px;
-    height: auto;
-    margin: 180px auto;
-  }
+.list-button {
+  position: absolute;
+  bottom: -30px;
+  left: 8%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-@media screen and (max-height: 500px) and (min-width: 992px) {
-  .blog-slider {
-    height: 350px;
-  }
+.btn-location {
+  align-items: center;
+  background-color: #f5f5f5;
+  border: 1px solid #d2d2d2;
+  border-radius: 500px;
+  box-shadow: rgba(0 0 0 / 15%) 0 4px 10px -2px,
+    rgba(0 0 0 / 20%) 0 2px 3px -1px;
+  color: #333;
+  cursor: pointer;
+  display: flex;
+  font-family: arial, helvetica, "Twemoji Mozilla", "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", "EmojiOne Color",
+    "Android Emoji", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 1.5em;
+  margin: 0.13em;
+  max-width: 340px;
+  padding: 0.65em 1.3em;
+  position: relative;
+  text-align: center;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  width: auto;
+  z-index: 1;
+}
+
+.btn-location i {
+  flex-grow: 0;
+  flex-shrink: 0;
+  height: 1em;
+  line-height: 1em;
+  margin-right: 0.8em;
+  width: 1em;
 }
 
 .blog-slider__item {
@@ -452,13 +528,13 @@ html {
 
 .blog-slider__item.swiper-slide-active .blog-slider__img img {
   opacity: 1;
-  transition-delay: .3s;
+  transition-delay: 0.3s;
 }
 
 .blog-slider__item.swiper-slide-active .blog-slider__content > * {
   opacity: 1;
   transform: none;
-  transition: all .4s;
+  transition: all 0.4s;
 }
 
 .blog-slider__img {
@@ -474,7 +550,7 @@ html {
 }
 
 .blog-slider__img:after {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -491,7 +567,7 @@ html {
   object-fit: cover;
   display: block;
   border-radius: 20px;
-  transition: all .3s;
+  transition: all 0.3s;
 }
 
 @media screen and (max-width: 992px) {
@@ -509,7 +585,8 @@ html {
 
 @media screen and (max-width: 576px) {
   .blog-slider__img {
-    width: 95%;
+    width: 90%;
+    height: 50%;
   }
 }
 
@@ -538,13 +615,13 @@ html {
 @media screen and (max-width: 576px) {
   .blog-slider__content {
     padding: 0;
-    height: 100%;
+    height: 80%;
   }
 }
 
 .blog-slider__content > * {
   transform: translateY(25px);
-  transition: all .4s;
+  transition: all 0.4s;
 }
 
 .blog-slider__title {
@@ -553,12 +630,12 @@ html {
   color: #0d0925;
   margin-bottom: 20px;
   align-self: flex-start;
-  font-family: 'Roboto Slab', serif;
+  font-family: "Roboto Slab", serif;
 }
 
-.blog-slider__bottom{
+.blog-slider__bottom {
   align-self: flex-end;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
 }
 
 .blog-slider__date {
@@ -567,16 +644,16 @@ html {
   display: flex;
 }
 
-.blog-date-text{
+.blog-date-text {
   font-size: 16px;
   line-height: 1.5;
 }
 
-.blog-date-icon{
+.blog-date-icon {
   margin-right: 10px;
 }
 
-.text-small{
+.text-small {
   font-size: 12px;
 }
 
@@ -600,7 +677,9 @@ html {
   }
 }
 
-.swiper-container-horizontal > .swiper-pagination-bullets, .swiper-pagination-custom, .swiper-pagination-fraction {
+.swiper-container-horizontal > .swiper-pagination-bullets,
+.swiper-pagination-custom,
+.swiper-pagination-fraction {
   bottom: 10px;
   left: 0;
   width: 100%;
@@ -614,12 +693,4 @@ html {
   .blog-slider__pagination.swiper-pagination-bullets .swiper-pagination-bullet {
     margin: 0 5px;
   }
-}
-
-.grid-container {
-  display: grid;
-  grid-template-columns: auto auto;
-  justify-items: center;
-  align-items: center;
-  column-gap: 60px;
 }
