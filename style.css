@@ -654,9 +654,13 @@ html {
   }
 
   .list-button {
-    left: 8% !important;
+    left: 0% !important;
     font-size: 5px !important;
     bottom: 0px !important;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
   }
 
   .atcb-text {
@@ -693,6 +697,24 @@ html {
     font-size: 5vw !important;
     margin: 0px auto;
     margin-top: 35px;
+  }
+
+  .blog-slider:hover {
+    -webkit-transform: none; /* Reset transformation */
+    -ms-transform: none; /* Reset transformation for IE */
+    transform: none; /* Reset transformation */
+    -webkit-box-shadow: none; /* Reset shadow */
+    box-shadow: none; /* Reset shadow */
+    width: 80%;
+    position: relative;
+    /* margin: 50px auto; */
+    background: #fff;
+    /* padding-top: 25px; */
+    /* padding-bottom: 25px; */
+    border-radius: 25px;
+    height: auto;
+    box-shadow: 0px 20px 50px rgba(124, 126, 133, 0.5);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
   }
 }
 

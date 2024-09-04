@@ -15,17 +15,14 @@ const moreButton = document.querySelector('.more-button');
 
 // Prevent touch events on the more-button
 moreButton.addEventListener('touchstart', (event) => {
-    console.log(1);
     event.stopImmediatePropagation(); // Stops other touchstart listeners from being triggered
 }, { passive: false });
 
 moreButton.addEventListener('touchend', (event) => {
-    console.log(2);
     event.stopImmediatePropagation(); // Stops other touchend listeners from being triggered
 }, { passive: false });
 
 document.addEventListener('wheel', (event) => {
-    console.log(3);
     if (!isScrolling && !isPopupOpen) {
         if (event.deltaY > 0) {
             nextSection();
@@ -45,7 +42,6 @@ document.addEventListener('touchstart', (event) => {
 }, false);
 
 document.addEventListener('touchmove', (event) => {
-    console.log(5);
     if (!isPopupOpen) {
         touchEndY = event.touches[0].clientY;
     }
