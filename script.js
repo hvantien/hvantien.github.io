@@ -173,3 +173,10 @@ const updateCountdown = () => {
 
 const interval = setInterval(updateCountdown, 1000);
 updateCountdown();
+
+const windowHeight = () => {
+    const doc = document.documentElement
+    doc.style.setProperty('--window-height', `${window.innerHeight}px`)
+}
+window.addEventListener('resize', windowHeight);
+windowHeight();

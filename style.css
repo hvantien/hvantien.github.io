@@ -118,7 +118,7 @@ html {
 }
 
 .section {
-  height: 100vh;
+  height: var(--window-height);
   justify-content: center;
   align-items: center;
   font-size: 2em;
@@ -161,7 +161,7 @@ html {
 }
 
 .fullscreen {
-  min-height: 100vh;
+  min-height: var(--window-height);
 }
 
 .modal-body img {
@@ -236,8 +236,8 @@ html {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 100vh;
-  min-height: 100vh;
+  height: var(--window-height);
+  min-height: var(--window-height);
   display: flex;
   flex-direction: column;
 }
@@ -351,7 +351,7 @@ html {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 100vh;
+  height: var(--window-height);
 }
 
 .modal-body::-webkit-scrollbar {
@@ -368,7 +368,7 @@ html {
 
 .session3 {
   overflow: hidden;
-  max-height: 100vh;
+  max-height: var(--window-height);
 }
 
 .grid-container {
@@ -376,7 +376,7 @@ html {
   grid-template-columns: 1fr 1fr;
   justify-items: center;
   /* align-items: center; */
-  height: 100vh;
+  height: var(--window-height);
   column-gap: 10px;
 }
 
@@ -622,7 +622,7 @@ html {
   .grid-container {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
-    height: 100vh;
+    height: var(--window-height);
   }
 
   .blog-slider__title {
