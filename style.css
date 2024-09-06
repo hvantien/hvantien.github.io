@@ -172,7 +172,7 @@ html {
 .more-button {
   position: absolute;
   bottom: 8vh;
-  left: 40%;
+  left: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -185,6 +185,7 @@ html {
   opacity: 1;
   border-radius: 32px;
   animation: expandButton 3s ease forwards;
+  transform: translate(-50%, -50%);
 }
 
 .text-button {
@@ -575,6 +576,15 @@ html {
   margin: 8px 0;
 }
 
+.session4 {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: var(--window-height);
+  min-height: var(--window-height);
+}
+
 /* Styles for tablets and small screens (up to 768px) */
 @media (max-width: 768px) {
   /* Adjustments for tablets and smaller devices */
@@ -651,6 +661,10 @@ html {
 
   .session2 {
     background-image: url("img/session2-img-phone.png");
+  }
+
+  .session4 {
+    background-image: url("img/session4-phone.png");
   }
 
   .list-button {
@@ -750,6 +764,10 @@ html {
 
   .session2 {
     background-image: url("img/session2.png");
+  }
+
+  .session4 {
+    background-image: url("img/session4.png");
   }
 }
 
