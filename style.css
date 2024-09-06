@@ -199,11 +199,11 @@ html {
 }
 
 .icon-button {
-  font-size: 1.2em;
   background-color: #0071e3;
   padding: 10px;
   border-radius: 50%;
   animation: showIcon 4s ease forwards;
+  font-size: 25px !important;
 }
 
 .modal-content {
