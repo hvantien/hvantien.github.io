@@ -39,13 +39,13 @@ document.addEventListener('touchstart', (event) => {
         touchStartY = event.touches[0].clientY;
         touchStartTime = new Date().getTime(); // Ghi lại thời gian bắt đầu
     }
-}, false);
+}, { passive: true }); // Set passive to true
 
 document.addEventListener('touchmove', (event) => {
     if (!isPopupOpen) {
         touchEndY = event.touches[0].clientY;
     }
-}, false);
+}, { passive: true }); // Set passive to true
 
 document.addEventListener('touchend', () => {
     if (!isScrolling && !isPopupOpen) {
@@ -59,7 +59,7 @@ document.addEventListener('touchend', () => {
             console.log("Phát hiện chạm"); // Đây là hành động nhấn
         }
     }
-}, false);
+}, { passive: true }); // Set passive to true
 
 dots.forEach((dot, index) => {
     dot.addEventListener('click', () => {
