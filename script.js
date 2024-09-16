@@ -4,13 +4,6 @@ window.addEventListener('DOMContentLoaded', function () {
     const loaderBackground = document.getElementById('heart-loader-background');
     let imagesLoaded = 0;
     const totalImages = images.length;
-    let minTimePassed = false;
-
-    // Đặt thời gian chờ 5 giây
-    setTimeout(() => {
-        minTimePassed = true;
-        hideLoaderIfReady();
-    }, 5000);
 
     // Đếm số hình ảnh đã tải xong
     images.forEach(image => {
@@ -29,17 +22,14 @@ window.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // Hàm kiểm tra nếu đã tải xong tất cả ảnh và thời gian tối thiểu đã trôi qua
+    // Hàm kiểm tra nếu đã tải xong tất cả ảnh
     function hideLoaderIfReady() {
-        if (imagesLoaded === totalImages && minTimePassed) {
+        if (imagesLoaded === totalImages) {
             loader.style.display = 'none';
             loaderBackground.style.display = 'none'; // Ẩn lớp phủ mờ nền
         }
     }
 });
-
-
-
 
 // Countdown Timer
 const countdownDate = new Date("September 22, 2024 00:00:00").getTime();
