@@ -42,26 +42,21 @@ document.addEventListener('touchstart', (event) => {
 }, false);
 
 document.addEventListener('touchmove', (event) => {
-    if (!isScrolling && !isPopupOpen) {
+    if (!isPopupOpen) {
         touchEndY = event.touches[0].clientY;
-        const distance = touchStartY - touchEndY;
-        const currentTime = new Date().getTime();
-        const timeDiff = currentTime - touchStartTime;
-
-        // Xử lý cuộn ngay khi di chuyển lớn hơn ngưỡng và thời gian không quá ngắn
-        if (Math.abs(distance) > SCROLL_THRESHOLD && timeDiff > TIME_THRESHOLD) {
-            handleTouchScroll();
-            touchStartY = touchEndY;  // Đặt lại giá trị touchStartY để tránh cuộn quá nhanh
-            touchStartTime = currentTime;  // Đặt lại thời gian bắt đầu
-        }
     }
 }, false);
 
 document.addEventListener('touchend', () => {
     if (!isScrolling && !isPopupOpen) {
-        const timeDiff = new Date().getTime() - touchStartTime;
-        if (timeDiff <= TIME_THRESHOLD) {
-            console.log("Phát hiện nhấn nhẹ"); // Đây là hành động nhấn
+        touchEndTime = new Date().getTime(); // Ghi lại thời gian kết thúc
+        const timeDiff = touchEndTime - touchStartTime;
+
+        // Chỉ coi là cuộn nếu chuyển động lớn hơn ngưỡng và thời gian đủ dài
+        if (Math.abs(touchStartY - touchEndY) > SCROLL_THRESHOLD && timeDiff > TIME_THRESHOLD) {
+            handleTouchScroll();
+        } else {
+            console.log("Phát hiện chạm"); // Đây là hành động nhấn
         }
     }
 }, false);
