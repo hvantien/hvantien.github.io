@@ -329,10 +329,7 @@ html {
 .blog-slider {
   width: 80%;
   position: relative;
-  /* margin: 50px auto; */
   background: #fff;
-  /* padding-top: 25px; */
-  /* padding-bottom: 25px; */
   border-radius: 25px;
   height: auto;
   box-shadow: 0px 20px 50px rgba(124, 126, 133, 0.5);
