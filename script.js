@@ -100,6 +100,7 @@ function scrollToSection(index) {
     updateDots(index);
     setTimeout(() => {
         isScrolling = false;
+        checkCurrentSection();  // Cập nhật dot ngay sau khi cuộn xong
     }, 1000);
 }
 
@@ -116,8 +117,14 @@ function updateDots(index) {
 
 function checkCurrentSection() {
     const scrollPosition = window.scrollY || window.pageYOffset;
+    const windowHeight = window.innerHeight;
+
     sections.forEach((section, index) => {
-        if (scrollPosition >= section.offsetTop && scrollPosition < section.offsetTop + section.offsetHeight) {
+        const sectionTop = section.offsetTop;
+        const sectionBottom = sectionTop + section.offsetHeight;
+
+        // Kiểm tra nếu điểm giữa màn hình nằm trong section hiện tại
+        if (scrollPosition + windowHeight / 2 >= sectionTop && scrollPosition + windowHeight / 2 < sectionBottom) {
             updateDots(index);
         }
     });
