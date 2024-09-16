@@ -1,3 +1,46 @@
+window.addEventListener('DOMContentLoaded', function () {
+    const loader = document.getElementById('heart-loader');
+    const images = document.querySelectorAll('.lazy-load-image');
+    const loaderBackground = document.getElementById('heart-loader-background');
+    let imagesLoaded = 0;
+    const totalImages = images.length;
+    let minTimePassed = false;
+
+    // Đặt thời gian chờ 5 giây
+    setTimeout(() => {
+        minTimePassed = true;
+        hideLoaderIfReady();
+    }, 5000);
+
+    // Đếm số hình ảnh đã tải xong
+    images.forEach(image => {
+        if (image.complete) {
+            imagesLoaded++;
+            hideLoaderIfReady();
+        } else {
+            image.addEventListener('load', () => {
+                imagesLoaded++;
+                hideLoaderIfReady();
+            });
+            image.addEventListener('error', () => {
+                imagesLoaded++;
+                hideLoaderIfReady();
+            });
+        }
+    });
+
+    // Hàm kiểm tra nếu đã tải xong tất cả ảnh và thời gian tối thiểu đã trôi qua
+    function hideLoaderIfReady() {
+        if (imagesLoaded === totalImages && minTimePassed) {
+            loader.style.display = 'none';
+            loaderBackground.style.display = 'none'; // Ẩn lớp phủ mờ nền
+        }
+    }
+});
+
+
+
+
 // Countdown Timer
 const countdownDate = new Date("September 22, 2024 00:00:00").getTime();
 
