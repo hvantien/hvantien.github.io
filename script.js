@@ -8,8 +8,8 @@ let touchStartY = 0;
 let touchEndY = 0;
 let touchStartTime = 0;
 let touchEndTime = 0;
-const SCROLL_THRESHOLD = 20; // Khoảng cách tối thiểu để coi là cuộn
-const TIME_THRESHOLD = 50; // Thời gian tối đa để coi là nhấn (ms)
+const SCROLL_THRESHOLD = 50; // Khoảng cách tối thiểu để coi là cuộn
+const TIME_THRESHOLD = 150; // Thời gian tối đa để coi là nhấn (ms)
 
 const moreButton = document.querySelector('.more-button');
 
