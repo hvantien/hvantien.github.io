@@ -1,11 +1,15 @@
 window.addEventListener('DOMContentLoaded', function () {
     const loader = document.getElementById('heart-loader');
-    const images = document.querySelectorAll('.lazy-load-image');
     const loaderBackground = document.getElementById('heart-loader-background');
+    const container = document.querySelector('.container-fluid');
+    const images = document.querySelectorAll('.lazy-load-image');
     let imagesLoaded = 0;
     const totalImages = images.length;
 
-    // Đếm số hình ảnh đã tải xong
+    // Ẩn container ban đầu
+    container.style.display = 'none';
+
+    // Kiểm tra nếu hình ảnh đã được tải
     images.forEach(image => {
         if (image.complete) {
             imagesLoaded++;
@@ -22,11 +26,12 @@ window.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // Hàm kiểm tra nếu đã tải xong tất cả ảnh
+    // Hàm kiểm tra nếu tất cả hình ảnh đã được tải
     function hideLoaderIfReady() {
         if (imagesLoaded === totalImages) {
-            loader.style.display = 'none';
-            loaderBackground.style.display = 'none'; // Ẩn lớp phủ mờ nền
+            loader.style.display = 'none'; // Ẩn loader
+            loaderBackground.style.display = 'none'; // Ẩn lớp nền mờ
+            container.style.display = 'block'; // Hiện container
         }
     }
 });

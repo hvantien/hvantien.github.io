@@ -129,6 +129,7 @@ html {
 }
 
 .container-fluid {
+  display: none;
   padding: 0 !important;
 }
 
