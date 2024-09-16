@@ -8,8 +8,8 @@ let touchStartY = 0;
 let touchEndY = 0;
 let touchStartTime = 0;
 let touchEndTime = 0;
-const SCROLL_THRESHOLD = 50; // Khoảng cách tối thiểu để coi là cuộn
-const TIME_THRESHOLD = 150; // Thời gian tối đa để coi là nhấn (ms)
+const SCROLL_THRESHOLD = 30; // Khoảng cách tối thiểu để coi là cuộn
+const TIME_THRESHOLD = 100; // Thời gian tối đa để coi là nhấn (ms)
 
 const moreButton = document.querySelector('.more-button');
 
@@ -42,8 +42,13 @@ document.addEventListener('touchstart', (event) => {
 }, false);
 
 document.addEventListener('touchmove', (event) => {
-    if (!isPopupOpen) {
+    if (!isScrolling && !isPopupOpen) {
         touchEndY = event.touches[0].clientY;
+        const distance = touchStartY - touchEndY;
+
+        if (Math.abs(distance) > SCROLL_THRESHOLD) {
+            handleTouchScroll(); // Xử lý cuộn ngay khi đủ khoảng cách
+        }
     }
 }, false);
 
