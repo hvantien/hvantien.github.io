@@ -112,7 +112,6 @@ body,
 html {
   margin: 0;
   padding: 0;
-  overflow: hidden;
   user-select: none;
   cursor: pointer;
 }
@@ -237,8 +236,8 @@ html {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: var(--window-height);
-  min-height: var(--window-height);
+  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
@@ -347,12 +346,16 @@ html {
   text-align: center;
 }
 
-.session2 {
-  background-image: url("img/session2.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: var(--window-height);
+.session2 img{
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.session4 img{
+  width: 100%;
+  height: auto;
+  object-fit: contain;
 }
 
 .modal-body::-webkit-scrollbar {
@@ -368,8 +371,8 @@ html {
 }
 
 .session3 {
-  overflow: hidden;
-  max-height: var(--window-height);
+  max-height: 100vh;
+  min-height: 100vh;
   background-image: url("img/session3.png");
   background-size: cover;
   background-position: center;
@@ -580,13 +583,12 @@ html {
   margin: 8px 0;
 }
 
-.session4 {
-  position: relative;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: var(--window-height);
-  min-height: var(--window-height);
+.img-responsive {
+  display: none; /* Ẩn hình ảnh cho màn hình điện thoại */
+}
+
+.img-large {
+  display: block; /* Hiển thị hình ảnh cho màn hình lớn */
 }
 
 /* Styles for tablets and small screens (up to 768px) */
@@ -636,7 +638,7 @@ html {
   .grid-container {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
-    height: var(--window-height);
+    margin-top: 500px;
   }
 
   .blog-slider__title {
@@ -661,14 +663,6 @@ html {
 
   .session1 {
     background-image: url("img/session1-img-phone.jpeg");
-  }
-
-  .session2 {
-    background-image: url("img/session2-img-phone.png");
-  }
-
-  .session4 {
-    background-image: url("img/session4-phone.png");
   }
 
   .list-button {
@@ -809,13 +803,15 @@ html {
     background-image: url("img/session1-img-phone.jpeg");
   }
 
-  .session2 {
-    background-image: url("img/session2-img-phone.png");
-  }
+  @media only screen and (max-width: 767px) {
+    .img-large {
+        display: none; /* Ẩn hình ảnh cho màn hình lớn */
+    }
 
-  .session4 {
-    background-image: url("img/session4-phone.png");
-  }
+    .img-responsive {
+        display: block; /* Hiển thị hình ảnh cho màn hình điện thoại */
+    }
+}
 
   .list-button {
     left: 0% !important;
@@ -882,6 +878,7 @@ html {
   }
 }
 
+
 /* Styles for screens larger than 992px */
 @media (min-width: 992px) {
   /* Adjustments for larger tablets and small desktops */
@@ -896,14 +893,6 @@ html {
 
   .session1 {
     background-image: url("img/session1-img.jpeg");
-  }
-
-  .session2 {
-    background-image: url("img/session2.png");
-  }
-
-  .session4 {
-    background-image: url("img/session4.png");
   }
 }
 
