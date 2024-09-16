@@ -6,50 +6,14 @@
 }
 
 @font-face {
-  font-family: "beautiful-font";
-  src: url("/fonts/OoohBaby-Regular.ttf") format("opentype");
-}
-
-@font-face {
   font-family: "title-font-s3";
   src: url("/fonts/Caveat-VariableFont_wght.ttf") format("opentype");
-}
-
-@font-face {
-  font-family: "text-font-s3";
-  src: url("/fonts/Kalam-Regular.ttf") format("opentype");
 }
 
 @import url("https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700");
 @import url("https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i");
 @import url("https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600,700,800");
 
-@keyframes slideInFromRight {
-  0% {
-    transform: translate(-30%, -50%);
-  }
-  100% {
-    transform: translate(-45%, -50%);
-  }
-}
-
-@keyframes typing {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
-}
-
-@keyframes wipe {
-  from {
-    clip-path: inset(0 100% 0 0);
-  }
-  to {
-    clip-path: inset(0 0 0 0);
-  }
-}
 
 @keyframes showText {
   0% {
@@ -131,29 +95,6 @@ html {
 .container-fluid {
   display: none;
   padding: 0 !important;
-}
-
-.dots {
-  position: fixed;
-  bottom: 10px;
-  left: 30px;
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-}
-
-.dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background-color: gray;
-  cursor: pointer;
-}
-
-.dot.active {
-  background-color: black;
-  width: 20px;
-  border-radius: 10px;
 }
 
 .row > * {
