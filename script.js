@@ -6,10 +6,10 @@ window.addEventListener('DOMContentLoaded', function () {
     let imagesLoaded = 0;
     const totalImages = images.length;
 
-    // Ẩn container ban đầu
+    // Hide container initially
     container.style.display = 'none';
 
-    // Kiểm tra nếu hình ảnh đã được tải
+    // Check if images are already loaded
     images.forEach(image => {
         if (image.complete) {
             imagesLoaded++;
@@ -26,18 +26,18 @@ window.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // Hàm kiểm tra nếu tất cả hình ảnh đã được tải
+    // Function to hide loader if all images are loaded
     function hideLoaderIfReady() {
         if (imagesLoaded === totalImages) {
-            loader.style.display = 'none'; // Ẩn loader
-            loaderBackground.style.display = 'none'; // Ẩn lớp nền mờ
-            container.style.display = 'block'; // Hiện container
+            loader.style.display = 'none'; // Hide loader
+            loaderBackground.style.display = 'none'; // Hide background overlay
+            container.style.display = 'block'; // Show container
         }
     }
 });
 
 // Countdown Timer
-const countdownDate = new Date("September 22, 2024 00:00:00").getTime();
+const countdownDate = new Date("September 22, 2024 00:00:00 GMT+0000").getTime(); // Ensure timezone is set correctly
 
 const updateCountdown = () => {
     const now = new Date().getTime();
