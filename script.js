@@ -8,8 +8,8 @@ let touchStartY = 0;
 let touchEndY = 0;
 let touchStartTime = 0;
 let touchEndTime = 0;
-const SCROLL_THRESHOLD = 30; // Khoảng cách tối thiểu để coi là cuộn
-const TIME_THRESHOLD = 100; // Thời gian tối đa để coi là nhấn (ms)
+const SCROLL_THRESHOLD = 20; // Khoảng cách tối thiểu để coi là cuộn
+const TIME_THRESHOLD = 50; // Thời gian tối đa để coi là nhấn (ms)
 
 const moreButton = document.querySelector('.more-button');
 
@@ -45,23 +45,23 @@ document.addEventListener('touchmove', (event) => {
     if (!isScrolling && !isPopupOpen) {
         touchEndY = event.touches[0].clientY;
         const distance = touchStartY - touchEndY;
+        const currentTime = new Date().getTime();
+        const timeDiff = currentTime - touchStartTime;
 
-        if (Math.abs(distance) > SCROLL_THRESHOLD) {
-            handleTouchScroll(); // Xử lý cuộn ngay khi đủ khoảng cách
+        // Xử lý cuộn ngay khi di chuyển lớn hơn ngưỡng và thời gian không quá ngắn
+        if (Math.abs(distance) > SCROLL_THRESHOLD && timeDiff > TIME_THRESHOLD) {
+            handleTouchScroll();
+            touchStartY = touchEndY;  // Đặt lại giá trị touchStartY để tránh cuộn quá nhanh
+            touchStartTime = currentTime;  // Đặt lại thời gian bắt đầu
         }
     }
 }, false);
 
 document.addEventListener('touchend', () => {
     if (!isScrolling && !isPopupOpen) {
-        touchEndTime = new Date().getTime(); // Ghi lại thời gian kết thúc
-        const timeDiff = touchEndTime - touchStartTime;
-
-        // Chỉ coi là cuộn nếu chuyển động lớn hơn ngưỡng và thời gian đủ dài
-        if (Math.abs(touchStartY - touchEndY) > SCROLL_THRESHOLD && timeDiff > TIME_THRESHOLD) {
-            handleTouchScroll();
-        } else {
-            console.log("Phát hiện chạm"); // Đây là hành động nhấn
+        const timeDiff = new Date().getTime() - touchStartTime;
+        if (timeDiff <= TIME_THRESHOLD) {
+            console.log("Phát hiện nhấn nhẹ"); // Đây là hành động nhấn
         }
     }
 }, false);
