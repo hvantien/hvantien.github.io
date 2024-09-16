@@ -149,6 +149,7 @@ const modalElement = document.getElementById('exampleModal');
 modalElement.addEventListener('shown.bs.modal', openModal);
 modalElement.addEventListener('hidden.bs.modal', closeModal);
 
+// Countdown Timer
 const countdownDate = new Date("September 22, 2024 00:00:00").getTime();
 
 const updateCountdown = () => {
@@ -177,9 +178,10 @@ const updateCountdown = () => {
 const interval = setInterval(updateCountdown, 1000);
 updateCountdown();
 
+// Update window height
 const windowHeight = () => {
-    const doc = document.documentElement
-    doc.style.setProperty('--window-height', `${window.innerHeight}px`)
+    const doc = document.documentElement;
+    doc.style.setProperty('--window-height', `${window.innerHeight}px`);
 }
 window.addEventListener('resize', windowHeight);
 windowHeight();
