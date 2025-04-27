@@ -99,7 +99,7 @@ const Flashcards = () => {
                       sentence.trim().toLowerCase();
 
                     return (
-                      <li key={idx} style={{ marginBottom: "20px" }}>
+                      <div key={idx} style={{ marginBottom: "20px" }}>
                         <p>
                           <strong>Translation:</strong> {example.translation}
                         </p>
@@ -117,7 +117,6 @@ const Flashcards = () => {
                                   ? "green"
                                   : "red"
                               }`,
-                              padding: "5px",
                               width: "100%",
                               maxWidth: "500px",
                             }}
@@ -151,7 +150,7 @@ const Flashcards = () => {
                             {renderComparison(userInput, sentence)}
                           </div>
                         )}
-                      </li>
+                      </div>
                     );
                   })}
                 </ul>

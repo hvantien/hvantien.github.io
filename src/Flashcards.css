@@ -1,32 +1,49 @@
 .flashcards-wrapper {
-    position: relative;
-    height: 100vh;
-    overflow: hidden;
-  }
-  
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+
+.flashcard-scrollable {
+  flex: 1;
+  overflow-y: auto;
+  max-height: calc(100vh - 80px);
+}
+
+.card {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.flashcard-controls {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: white;
+  border-top: 1px solid #ccc;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 0;
+  z-index: 999;
+}
+
+@media (max-width: 768px) {
   .flashcard-scrollable {
-    height: 100%;
-    padding-bottom: 80px; /* để tránh nút bị che */
-    overflow-y: auto;
-    padding: 20px;
+    max-height: calc(100vh - 60px);
   }
-  
-  .card {
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  
+
   .flashcard-controls {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background: white;
-    border-top: 1px solid #ccc;
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    padding: 10px 0;
-    z-index: 999;
+    padding: 8px 0;
+    gap: 5px;
   }
-  
+
+  .flashcard-controls button {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+}

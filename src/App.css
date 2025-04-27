@@ -41,23 +41,24 @@
 
 /* NavBar Style */
 .navbar {
-  position: fixed; /* Thêm dòng này */
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   background-color: #333;
   padding: 8px 0;
   text-align: center;
-  z-index: 1000; /* Đảm bảo nav ở trên cùng */
+  z-index: 1000;
 }
 
 .nav-links {
   list-style-type: none;
   padding: 0;
+  display: flex; /* Sử dụng flexbox cho bố cục ngang */
+  justify-content: center; /* Căn giữa các mục */
 }
 
 .nav-links li {
-  display: inline;
   margin: 0 15px;
 }
 
@@ -81,15 +82,20 @@
     padding: 8px;
   }
 
+  .nav-links {
+    flex-direction: row; /* Giữ bố cục ngang */
+    justify-content: space-around; /* Phân bố đều */
+    flex-wrap: nowrap; /* Ngăn xuống hàng */
+  }
+
   .nav-links li {
-    display: block;
-    margin: 8px 0;
+    margin: 0 5px; /* Giảm margin để vừa màn hình nhỏ */
   }
 
   .nav-link {
-    font-size: 14px;
-    padding: 8px 16px;
-    display: block;
+    font-size: 12px; /* Giảm kích thước chữ */
+    padding: 6px 8px; /* Giảm padding để gọn hơn */
+    border-radius: 3px;
   }
 }
 
