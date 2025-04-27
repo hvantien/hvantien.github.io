@@ -36,3 +36,64 @@
     transform: rotate(360deg);
   }
 }
+
+/* App.css */
+
+/* NavBar Style */
+.navbar {
+  position: fixed; /* Thêm dòng này */
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #333;
+  padding: 8px 0;
+  text-align: center;
+  z-index: 1000; /* Đảm bảo nav ở trên cùng */
+}
+
+.nav-links {
+  list-style-type: none;
+  padding: 0;
+}
+
+.nav-links li {
+  display: inline;
+  margin: 0 15px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.nav-link:hover {
+  background-color: #f39c12;
+  color: #333;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 8px;
+  }
+
+  .nav-links li {
+    display: block;
+    margin: 8px 0;
+  }
+
+  .nav-link {
+    font-size: 14px;
+    padding: 8px 16px;
+    display: block;
+  }
+}
+
+/* Thêm khoảng trống để tránh nội dung bị che */
+body, #root {
+  padding-top: 60px;
+}

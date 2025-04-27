@@ -1,0 +1,32 @@
+.flashcards-wrapper {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .flashcard-scrollable {
+    height: 100%;
+    padding-bottom: 80px; /* để tránh nút bị che */
+    overflow-y: auto;
+    padding: 20px;
+  }
+  
+  .card {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .flashcard-controls {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: white;
+    border-top: 1px solid #ccc;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px 0;
+    z-index: 999;
+  }
+  

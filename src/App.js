@@ -1,24 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import Flashcards from './components/Flashcards';
+import AddFlashcard from './components/AddFlashcard';
+import ListFlashcards from "./components/ListFlashcards";
+import EditFlashcard from "./components/EditFlashcard";
+import './App.css'; // Import CSS file
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div>
+        <nav className="navbar">
+          <ul className="nav-links">
+            <li>
+              <Link to="/" className="nav-link">Home</Link>
+            </li>
+            <li>
+              <Link to="/flashcards" className="nav-link">Flashcards</Link>
+            </li>
+            <li>
+              <Link to="/add-flashcard" className="nav-link">Add Flashcard</Link>
+            </li>
+          </ul>
+        </nav>
+
+        <Routes>
+          <Route path="/flashcards" element={<Flashcards />} />
+          <Route path="/" element={<ListFlashcards />} />
+          <Route path="/add-flashcard" element={<AddFlashcard />} />
+          <Route path="/edit/:id" element={<EditFlashcard />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
